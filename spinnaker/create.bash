@@ -36,5 +36,5 @@ gcloud alpha container --project "$GCP_PROJECT" clusters create "$SPINNAKER_CLUS
 # useraccounts-rw       https://www.googleapis.com/auth/cloud.useraccounts
 # userinfo-email        https://www.googleapis.com/auth/userinfo.email
 
-gcloud compute scp --project="$GCP_PROJECT" "$(dirname "$0")"/halyard.bash "$HALYARD_HOST":halyard.bash --zone="$HALYARD_ZONE"
+gcloud compute scp --project="$GCP_PROJECT" "$(dirname "$0")"/halyard/init.bash "$HALYARD_HOST":halyard.bash --zone="$HALYARD_ZONE"
 gcloud compute ssh "$HALYARD_HOST" --project="$GCP_PROJECT" --zone="$HALYARD_ZONE" --ssh-flag="-L 9000:localhost:9000" --ssh-flag="-L 8084:localhost:8084" --command="SPINNAKER_CLUSTER=$SPINNAKER_CLUSTER SPINNAKER_ZONE=$SPINNAKER_ZONE GCS_SERVICE_ACCOUNT=$GCS_SERVICE_ACCOUNT SPINNAKER_VERSION=$SPINNAKER_VERSION ~/halyard.bash"
