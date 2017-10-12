@@ -32,6 +32,7 @@ set -ex
 
 . "$(dirname "$0")"/env.bash
 
+HALYARD_SERVICE_ACCOUNT_EMAIL=$(gcloud iam service-accounts list --project="$GCP_PROJECT" --filter="displayName:$HALYARD_SERVICE_ACCOUNT" --format='value(email)')
 gcloud beta compute --project="$GCP_PROJECT" instances create "$HALYARD_HOST" \
   --zone="$HALYARD_ZONE" \
   --machine-type="$HALYARD_MACHINE_TYPE" \
