@@ -3,8 +3,8 @@ set -ex
 
 . "$(dirname "$0")"/env.bash
 
-gcloud compute instances create "$HALYARD_HOST" --project="$GCP_PROJECT" --zone="$HALYARD_ZONE" --scopes=cloud-platform --service-account="$HALYARD_SERVICE_ACCOUNT_EMAIL" --machine-type="${HALYARD_MACHINE_TYPE}" --image-project=ubuntu-os-cloud --image-family=ubuntu-1404-lts --boot-disk-type=pd-ssd
-gcloud alpha container --project "$GCP_PROJECT" clusters create "$SPINNAKER_CLUSTER" --zone="$SPINNAKER_ZONE" --machine-type="$SPINNAKER_MACHINE_TYPE" --num-nodes="$SPINNAKER_NUM_NODES" --enable-cloud-logging --no-enable-cloud-monitoring --enable-legacy-authorization --scopes=default,compute-rw,https://www.googleapis.com/auth/devstorage.read_only,logging-write,monitoring,service-control,service-management,https://www.googleapis.com/auth/trace.append,userinfo-email
+gcloud compute instances create "$HALYARD_HOST" --project="$GCP_PROJECT" --zone="$HALYARD_ZONE" --scopes=cloud-platform --service-account="$HALYARD_SERVICE_ACCOUNT_EMAIL" --machine-type="$HALYARD_MACHINE_TYPE" --image-project=ubuntu-os-cloud --image-family=ubuntu-1404-lts --boot-disk-type=pd-ssd
+gcloud alpha container --project="$GCP_PROJECT" clusters create "$SPINNAKER_CLUSTER" --zone="$SPINNAKER_ZONE" --machine-type="$SPINNAKER_MACHINE_TYPE" --num-nodes="$SPINNAKER_NUM_NODES" --enable-cloud-logging --no-enable-cloud-monitoring --enable-legacy-authorization --scopes=default,compute-rw,https://www.googleapis.com/auth/devstorage.read_only,logging-write,monitoring,service-control,service-management,https://www.googleapis.com/auth/trace.append,userinfo-email
 
 # bigquery              https://www.googleapis.com/auth/bigquery
 # cloud-platform        https://www.googleapis.com/auth/cloud-platform
