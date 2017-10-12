@@ -48,6 +48,7 @@ gcloud beta compute --project="$GCP_PROJECT" instances create "$HALYARD_HOST" \
 gcloud alpha container --project="$GCP_PROJECT" clusters create "$SPINNAKER_CLUSTER" \
   --zone="$SPINNAKER_ZONE" \
   --machine-type="$SPINNAKER_MACHINE_TYPE" \
+  --cluster-version="1.7.8"
   --num-nodes="$SPINNAKER_NUM_NODES" \
   --enable-cloud-logging \
   --no-enable-cloud-monitoring \
