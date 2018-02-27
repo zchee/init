@@ -3,8 +3,8 @@ set -ex
 
 . "$(dirname "$0")"/env.bash
 
-gcloud service-management --project="$GCP_PROJECT" enable iam.googleapis.com
-gcloud service-management --project="$GCP_PROJECT" enable cloudresourcemanager.googleapis.com
+gcloud services --project="$GCP_PROJECT" enable iam.googleapis.com
+gcloud services --project="$GCP_PROJECT" enable cloudresourcemanager.googleapis.com
 
 gcloud iam service-accounts create "$HALYARD_SERVICE_ACCOUNT" --project="$GCP_PROJECT" --display-name "$HALYARD_SERVICE_ACCOUNT" || true
 HALYARD_SERVICE_ACCOUNT_EMAIL=$(gcloud iam service-accounts list --project="$GCP_PROJECT" --filter="displayName:$HALYARD_SERVICE_ACCOUNT" --format='value(email)')
