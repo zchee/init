@@ -47,9 +47,9 @@ gcloud alpha container --project="$GCP_PROJECT" clusters create "$SPINNAKER_CLUS
   --zone="$SPINNAKER_ZONE" \
   --machine-type="$SPINNAKER_MACHINE_TYPE" \
   --num-nodes="$SPINNAKER_NUM_NODES" \
+  --cluster-version "$SPINNAKER_CLUSTER_VERSION" \
   --enable-cloud-logging \
-  --no-enable-cloud-monitoring \
-  --enable-legacy-authorization \
+  --enable-cloud-monitoring \
   --scopes=default,bigquery,compute-rw,datastore,logging-write,monitoring,service-control,service-management,storage-ro,userinfo-email
 
 gcloud beta compute --project="$GCP_PROJECT" scp "$(dirname "$0")"/halyard/init.bash "$HALYARD_HOST":halyard.bash --zone="$HALYARD_ZONE"
