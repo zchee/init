@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-curl -O https://storage.googleapis.com/kubernetes-release/release/"$(curl -sSL https://storage.googleapis.com/kubernetes-release/release/stable.txt)"/bin/linux/amd64/kubectl
+curl -O https://storage.googleapis.com/kubernetes-release/release/"$(curl -sSL https://storage.googleapis.com/kubernetes-release/release/latest.txt)"/bin/linux/amd64/kubectl
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/stable/InstallHalyard.sh
